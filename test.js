@@ -229,3 +229,226 @@
 // bar();
 
 // p.200
+
+// function foo() {
+//     var x = 'local';
+//     console.log(x);
+//     return x;
+// }
+
+// foo();
+
+// Property Attribute
+
+// const person = {
+//     name: 'Lee'
+// };
+
+// person.age = 20;
+
+// console.log(Object.getOwnPropertyDescriptors(person));
+
+// const person = {
+//     firstName: 'Jongrip',
+//     lastName: 'Lee',
+
+//     get fullName() {
+//         return `${this.firstName} ${this.lastName}`;
+//     },
+//     set fullName(name) {
+//         [this.firstName, this.lastName] = name.split(' ');
+//     }
+// };
+
+// console.log(person.firstName + ' ' + person.lastName);
+// person.fullName = 'Heegun Lee';
+// console.log(person);
+// console.log(person.fullName);
+
+// let descriptor = Object.getOwnPropertyDescriptor(person, 'firstName');
+// console.log(descriptor);
+
+// descriptor = Object.getOwnPropertyDescriptor(person, 'fullName');
+// console.log(descriptor);
+
+// const person = {};
+
+// Object.defineProperty(person, 'firstName', {
+//     value: 'Jongrip',
+//     writable: true,
+//     enumerable: true,
+//     configurable: true
+// });
+
+// Object.defineProperty(person, 'lastName', {
+//     value: 'Lee'
+// });
+
+// let descriptor = Object.getOwnPropertyDescriptor(person, 'firstName');
+// console.log('firstName', descriptor);
+
+// descriptor = Object.getOwnPropertyDescriptor(person, 'lastName');
+// console.log('lastName', descriptor);
+
+// console.log(Object.keys(person));
+
+// person.lastName = 'Kim';
+// delete person.lastName;
+
+// descriptor = Object.getOwnPropertyDescriptor(person, 'lastName');
+// console.log('lastName', descriptor);
+
+// Object.defineProperty(person, 'fullName', {
+//     get() {
+//         return `${this.firstName} ${this.lastName}`;
+//     },
+//     set(name) {
+//         [this.firstName, this.lastName] = name.split(' ');
+//     },
+//     enumerable: true,
+//     configurable: true
+// });
+
+// descriptor = Object.getOwnPropertyDescriptor(person, 'fullName');
+// console.log('fullName', descriptor);
+
+// person.fullName = 'Heegun Lee';
+// console.log(person);
+
+// const person = {};
+
+// Object.defineProperties(person, {
+//     firstName: {
+//         value: 'Joonwoo',
+//         writable: true,
+//         enumerable: true,
+//         configurable: true
+//     },
+//     lastName: {
+//         value: 'Yoon',
+//         writable: true,
+//         enumerable: true,
+//         configurable: true
+//     },
+//     fullName: {
+//         get() {
+//             return `${this.firstName} ${this.lastName}`;
+//         },
+//         set(name) {
+//             [this.firstName, this.lastName] = name.split(' ');
+//         },
+//         enumerable: true,
+//         configurable: true
+//     }
+// });
+
+// person.fullName = 'SeungBin Yoon';
+// console.log(person);
+
+
+// const person = {
+//     name: 'Lee',
+//     address: {city: 'Seoul'}
+// };
+
+// Object.freeze(person);
+
+// console.log(Object.isFrozen(person));
+// console.log(Object.isFrozen(person.address));
+
+// person.address.city = 'Busan';
+// console.log(person);
+
+// function deepFreeze(target) {
+//     if(target && typeof target === 'Object' && !Object.isFrozen(target)) {
+//         Object.freeze(target);
+//         Object.keys(target).forEach(key => deepFreeze(target[key]));
+//     }
+//     return target;
+// }
+
+// const person = {
+//     name: 'Lee',
+//     address: {city: 'Seoul'}
+// };
+
+// deepFreeze(person);
+
+// console.log(Object.isFrozen(person));
+// console.log(Object.isFrozen(person.address));
+
+// person.address.city = 'Busan';
+// console.log(person);
+
+// const person = new Object();
+
+// person.name = 'Lee';
+// person.sayHello = function() {
+//     console.log('Hi! My name is ' + this.name);
+// };
+
+// console.log(person);
+// person.sayHello();
+
+// function Circle(radius) {
+//     this.radius = radius;
+//     this.getDiameter = function() {
+//         return 2 * this.radius;
+//     };
+// }
+
+// const circle = new Circle(1);
+// console.log(circle);
+
+// function Circle(radius) {
+//     this.radius = radius;
+//     this.getDiameter = function() {
+//         return 2 * this.radius;
+//     };
+// }
+
+// const circle = Circle(5);
+// console.log(circle);
+// console.log(radius);
+// console.log(getDiameter());
+
+// function Circle(radius) {
+//     if(!new.target) {
+//         return new Circle(radius);
+//     }
+//     this.radius = radius;
+//     this.getDiameter = function() {
+//         return 2 * this.radius;
+//     };
+// }
+
+// const circle = Circle(5);
+// console.log(circle.getDiameter());
+
+// const increase = function(num) {
+//     return ++num;
+// };
+
+// const decrease = function(num) {
+//     return --num;
+// };
+
+// const predicates = {increase, decrease};
+
+// function makeCounter(predicate) {
+//     let num = 0;
+//     return function() {
+//         num = predicate(num);
+//         return num;
+//     };
+// }
+
+// const increaser = makeCounter(predicates.increase);
+// console.log(increaser());
+// console.log(increaser());
+
+// const decreaser = makeCounter(predicates.decrease);
+// console.log(decreaser());
+// console.log(decreaser());
+
+// p.259
