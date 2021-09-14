@@ -685,15 +685,56 @@
 // console.log(str.toUpperCase());
 // console.log(typeof str);
 
-const person = {
-    name: 'Lee',
-    foo(callback) {
-        setTimeout(callback.bind(this), 100);
-    }
-};
+// const person = {
+//     name: 'Lee',
+//     foo(callback) {
+//         setTimeout(callback.bind(this), 100);
+//     }
+// };
 
-person.foo(function() {
-    console.log(`Hi! My name is ${this.name}.`);
-});
+// person.foo(function() {
+//     console.log(`Hi! My name is ${this.name}.`);
+// });
 
 // p.359
+
+// const x = 1;
+
+// function outerFunc() {
+//     const x = 10;
+//     innerFunc();
+// }
+
+// function innerFunc() {
+//     console.log(x);
+// }
+
+// outerFunc();
+
+// const x = 1;
+
+// function foo() {
+//     const x = 10;
+//     bar();
+// }
+
+// function bar() {
+//     console.log(x);
+// }
+
+// foo();
+// bar();
+
+// const x = 1;
+
+// function outer() {
+//     const x = 10;
+//     const inner = function() {
+//         console.log(x);
+//     }
+//     return inner();
+// }
+
+// const innerFunc = outer();
+// innerFunc();
+
