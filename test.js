@@ -452,3 +452,248 @@
 // console.log(decreaser());
 
 // p.259
+
+// function Circle(radius) {
+//     this.radius = radius;
+// }
+
+// Circle.prototype.getArea = function() {
+//     return Math.PI * this.radius **2;
+// };
+
+// const circle1 = new Circle(1);
+// const circle2 = new Circle(2);
+
+// console.log(circle1.getArea === circle2.getArea);
+// console.log(circle1.getArea());
+// console.log(circle2.getArea());
+
+// const person = {name: 'Lee'};
+// console.log(person.hasOwnProperty('__proto__'));
+// console.log(Object.getOwnPropertyDescriptor(Object.prototype, '__proto__'));
+// console.log({}.__proto__ === Object.prototype);
+
+// const obj = {};
+// const parent = {x: 1};
+
+// Object.getPrototypeOf(obj);
+// Object.getPrototypeOf(obj, parent);
+
+// console.log(obj.x);
+
+// const obj = new Object();
+// console.log(obj.constructor === Object);
+
+// const add = new Function('a', 'b', 'return a + b');
+// console.log(add.constructor === Function);
+
+// function Person(name) {
+//     this.name = name;
+// }
+
+// const me = new Person('Lee');
+// console.log(me.constructor === Person);
+
+// function Person(name) {
+//     this.name = name;
+// }
+
+// Person.prototype.sayHello = function() {
+//     console.log(`Hi! My name is &{this.name}`);
+// };
+
+// const me = new Person('Lee');
+// console.log(me.hasOwnProperty('name'));
+
+// p.285
+
+// const Person = (function() {
+//     function Person(name) {
+//         this.name = name;
+//     }
+//     Person.prototype.sayHello = function() {
+//         console.log(`Hi! My name is ${this.name}`);
+//     };
+//     return Person;
+// }());
+
+// const me = new Person('Lee');
+// me.sayHello = function() {
+//     console.log(`Hey! My name is ${this.name}`);
+// };
+
+// me.sayHello();
+
+// const Person = (function() {
+//     function Person(name) {
+//         this.name = name;
+//     }
+
+//     Person.prototype = {
+//         sayHello() {
+//             console.log(`Hi! My name is ${this.name}`);
+//         }
+//     };
+//     return Person;
+// }());
+
+// const me = new Person('Lee');
+// console.log(me.constructor === Person);
+// console.log(me.constructor === Object);
+
+// function Person(name) {
+//     this.name = name;
+// }
+
+// const me = new Person('Lee');
+
+// const parent = {
+//     constructor: Person,
+//     sayHello() {
+//         console.log(`Hi! My name is ${this.name}`);
+//     }
+// };
+
+// Person.prototype = parent;
+
+// Object.setPrototypeOf(me, parent);
+// me.sayHello();
+
+// const myProto = {x: 10};
+
+// const obj = {
+//     y: 20,
+//     __proto__: myProto
+// };
+
+// console.log(obj.x, obj.y);
+// console.log(Object.getPrototypeOf(obj) === myProto);
+
+// function Person(name) {
+//     this.name = name;
+// }
+
+// Person.prototype.sayHello = function() {
+//     console.log(`Hi! My name is ${this.name}`);
+// };
+
+// Person.staticProp = 'static prop';
+// Person.staticMethod = function() {
+//     console.log('staticMethod');
+// };
+
+// const me = new Person('Lee');
+// Person.staticMethod();
+
+// const person = {
+//     name: 'Lee',
+//     address: 'Seoul'
+// };
+
+// for (const key in person) {
+//     console.log(key + ': ' + person[key]);
+// }
+
+// const person = {
+//     name: 'Lee',
+//     address: 'Seoul',
+//     __proto__: {age: 20}
+// };
+
+// for(const key in person) {
+//     console.log(key + ': ' + person[key]);
+// }
+
+// const person = {
+//     name: 'Lee',
+//     address: 'Seoul',
+//     __proto__: {age: 20}
+// };
+
+// for (const key in person) {
+//     if(!person.hasOwnProperty(key)) continue;
+//     console.log(key + ': ' + person[key]);
+// }
+
+// const obj = {
+//     2: 2,
+//     3: 3,
+//     1: 1,
+//     b: 'b',
+//     a: 'a'
+// };
+
+// for (const key in obj) {
+//     if (!obj.hasOwnProperty(key)) continue;
+//     console.log(key + ': ' + obj[key]);
+// }
+
+// const arr = [1, 2, 3];
+// arr.x = 10;
+
+// for (const i in arr) {
+//     console.log(arr[i]);
+// }
+
+// for (let i = 0; i < arr.length; i++) {
+//     console.log(arr[i]);
+// }
+
+// arr.forEach(v => console.log(v));
+
+// for (const value of arr) {
+//     console.log(value);
+// }
+
+// const person = {
+//     name: 'Lee',
+//     address: 'Seoul',
+//     __proto__: {age: 20}
+// };
+
+// console.log(Object.keys(person));
+// console.log(Object.values(person));
+// console.log(Object.entries(person));
+// Object.entries(person).forEach(([key, value]) => console.log(key, value));
+
+// (function() {
+//     'use strict';
+
+//     function foo() {
+//         console.log(this);
+//     }
+//     foo();
+
+//     function Foo() {
+//         console.log(this);
+//     }
+//     new Foo();
+// }());
+
+// (function(a) {
+//     'use strict';
+//     a=2;
+//     console.log(arguments);
+// }(1));
+
+// const numObj = new Number(1.5);
+// console.log(numObj.toFixed());
+// console.log(Number.isInteger(0.5));
+
+// const str = 'hello';
+// console.log(str.length);
+// console.log(str.toUpperCase());
+// console.log(typeof str);
+
+const person = {
+    name: 'Lee',
+    foo(callback) {
+        setTimeout(callback.bind(this), 100);
+    }
+};
+
+person.foo(function() {
+    console.log(`Hi! My name is ${this.name}.`);
+});
+
+// p.359
