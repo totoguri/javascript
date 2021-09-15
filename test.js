@@ -755,20 +755,173 @@
 // // thus, ++num executed in global environment.
 
 
-const counter = (function() {
-    let num = 0;
-    return {
-        increase() {
-            return ++num;
-        },
-        decrease() {
-            return num > 0 ? --num : 0;
-        }
-    };
-}());
+// // closure counter function ex.
+// const counter = (function() {
+//     let num = 0;
+//     return {
+//         increase() {
+//             return ++num;
+//         },
+//         decrease() {
+//             return num > 0 ? --num : 0;
+//         }
+//     };
+// }());
 
-console.log(counter.increase());
-console.log(counter.increase());
+// console.log(counter.increase());
+// console.log(counter.increase());
 
-console.log(counter.decrease());
-console.log(counter.decrease());
+// console.log(counter.decrease());
+// console.log(counter.decrease());
+
+
+// // constructor function version of closure private function of above.
+// const Counter = (function() {
+//     let num = 0;
+//     function Counter() {
+//         // this.num = 0;
+//     }
+
+//     Counter.prototype.increase = function() {
+//         return ++num;
+//     };
+
+//     Counter.prototype.decrease = function() {
+//         return num > 0 ? --num : 0;
+//     };
+
+//     return Counter;
+// }());
+
+// const counter = new Counter();
+
+// console.log(counter.increase());
+// console.log(counter.increase());
+
+// console.log(counter.decrease());
+// console.log(counter.decrease());
+
+// // increaser and decreaser funcs don't share their variable.
+// function makeCounter(predicate) {
+//     let counter = 0;
+
+//     return function() {
+//         counter = predicate(counter);
+//         return counter;
+//     };
+// }
+
+// function increase(n) {
+//     return ++n;
+// }
+
+// function decrease(n) {
+//     return --n;
+// }
+
+// const increaser = makeCounter(increase);
+// console.log(increaser());
+// console.log(increaser());
+
+// const decreaser = makeCounter(decrease);
+// console.log(decreaser());
+// console.log(decreaser());
+
+
+// const counter = (function() {
+//     let counter = 0;
+
+//     return function(predicate) {
+//         counter = predicate(counter);
+//         return counter;
+//     };
+// }());
+
+// function increase(n) {
+//     return ++n;
+// }
+
+// function decrease(n) {
+//     return --n;
+// }
+
+// console.log(counter(increase));
+// console.log(counter(increase));
+
+// console.log(counter(decrease));
+// console.log(counter(decrease));
+
+
+// function Person(name, age) {
+//     this.name = name;
+//     let _age = age;     // locan variable. thus, can't reference from outside of Person.
+
+//     this.sayHi = function() {
+//         console.log(`Hi! My name is ${this.name}. I am ${_age}.`);
+//     };
+// }
+
+// const me = new Person('Lee', 20);
+// me.sayHi();
+// console.log(me.name);
+// console.log(me._age);   // undefined
+
+// const you = new Person('Kim', 30);
+// you.sayHi();
+// console.log(you.name);
+// console.log(you._age);  // undefined
+
+
+// const Person = (function() {
+//     let _age = 0;
+
+//     function Person(name, age) {
+//         this.name = name;
+//         _age = age;
+//     }
+
+//     Person.prototype.sayHi = function() {
+//         console.log(`Hi! My name is ${this.name}. I am ${_age}.`);
+//     };
+
+//     return Person;
+// }());
+
+// const me = new Person('Lee', 20);
+// me.sayHi();
+// console.log(me.name);
+// console.log(me._age);
+
+// const you = new Person('Kim', 30);
+// you.sayHi();
+// console.log(you.name);
+// console.log(you._age);
+
+
+// var funcs = [];
+
+// for (var i = 0; i < 3; i++) {
+//     funcs[i] = function() { return i; };
+// }
+
+// for (var j = 0; j < funcs.length; j++) {
+//     console.log(funcs[j]());
+// }
+
+
+// var funcs = [];
+
+// for(var i = 0; i < 3; i++) {
+//     funcs[i] = (function (id) {
+//         return function() {
+//             return id;
+//         };
+//     }(i));
+// }
+
+// for (var j = 0; j < funcs.length; j++) {
+//     console.log(funcs[j]());
+// }
+
+
+// p.417
