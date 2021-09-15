@@ -973,12 +973,93 @@
 // console.log(me);
 
 
-class Square {
-  static area(width, height) {
-    return width * height;
-  }
-}
+// class Square {
+//   static area(width, height) {
+//     return width * height;
+//   }
+// }
 
-console.log(Square.area(10, 10));
+// console.log(Square.area(10, 10));
 
 // p.432
+
+
+// const person = {
+//   firstName: 'Jongrip',
+//   lastName: 'Yoon',
+
+//   get fullName() {
+//     return `${this.firstName} ${this.lastName}`;
+//   },
+//   set fullName(name) {
+//     [this.firstName, this.lastName] = name.split(' ');
+//   }
+// };
+
+// console.log(`${person.firstName} ${person.lastName}`);
+// person.fullName = 'Heegun Lee';
+// console.log(person.fullName);
+// console.log(Object.getOwnPropertyDescriptor(person, 'fullName'));
+
+
+// class Person {
+//   constructor(firstName, lastName) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//   }
+
+//   get fullName() {
+//     return `${this.firstName} ${this.lastName}`;
+//   }
+
+//   set fullName(name) {
+//     [this.firstName, this.lastName] = name.split(' ');
+//   }
+// }
+
+// const me = new Person('Ungmo', 'Lee');
+// console.log(`${me.firstName} ${me.lastName}`);
+// me.fullName = 'Heegun Lee';
+// console.log(me.fullName);
+
+
+// class Person {
+//   name = 'Lee';
+// }
+
+// const me = new Person();
+// console.log(me);
+
+
+// class Person {
+//   #name = '';
+
+//   constructor(name) {
+//     this.#name = name;
+//   }
+
+//   getName = function() {
+//     return this.#name;
+//   }
+// }
+
+// const me = new Person('Lee');
+// console.log(me.getName());
+
+
+// class Person {
+//   #name = '';
+
+//   constructor(name) {
+//     this.#name = name;
+//   }
+
+//   get name() {
+//     return this.#name.trim();
+//   }
+// }
+
+// const me = new Person('Lee');
+// console.log(me.name);
+
+// p.447
