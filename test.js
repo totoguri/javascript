@@ -925,3 +925,60 @@
 
 
 // p.417
+
+
+// var Person = (function() {
+//     function Person(name) {
+//         this.name = name;
+//     }
+
+//     Person.prototype.sayHi = function() {
+//         console.log(`Hi! My name is ` + this.name);
+//     };
+//     return Person;
+// }());
+
+// var me = new Person('Lee');
+// me.sayHi();
+
+
+// class Person {
+//     constructor(name) {
+//         this.name = name;
+//     }
+
+//     sayHi() {
+//         console.log(`Hi! My name is ${this.name}`);
+//     }
+
+//     static sayHello() {
+//         console.log('Hello!');
+//     }
+// }
+
+// const me = new Person('Lee');
+// console.log(me.name);
+// me.sayHi();
+// Person.sayHello();
+
+
+// class Person {
+//   constructor() {
+//     this.name = 'Lee';
+//     this.address = 'Seoul';
+//   }
+// }
+
+// const me = new Person();
+// console.log(me);
+
+
+class Square {
+  static area(width, height) {
+    return width * height;
+  }
+}
+
+console.log(Square.area(10, 10));
+
+// p.432
