@@ -738,3 +738,37 @@
 // const innerFunc = outer();
 // innerFunc();
 
+
+// const increase = (function() {
+//     let num = 0;
+//     return function() {
+//         return ++num;
+//     };
+// }());
+
+// console.log(increase());    
+// // once 'num' is created, this num exists in global lexical environment. 
+// // doesn't care about 'num' in the local(741) environment anyumore.
+
+// console.log(increase());    
+// // closure executed. increase() is ordered in global environment. 
+// // thus, ++num executed in global environment.
+
+
+const counter = (function() {
+    let num = 0;
+    return {
+        increase() {
+            return ++num;
+        },
+        decrease() {
+            return num > 0 ? --num : 0;
+        }
+    };
+}());
+
+console.log(counter.increase());
+console.log(counter.increase());
+
+console.log(counter.decrease());
+console.log(counter.decrease());
