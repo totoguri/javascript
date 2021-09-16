@@ -1063,3 +1063,238 @@
 // console.log(me.name);
 
 // p.447
+
+
+// class MyMath {
+//   static PI = 22/7;
+//   static #num = 10;
+//   static increment() {
+//     return ++MyMath.#num;
+//   }
+// }
+
+// console.log(MyMath.PI);
+// console.log(MyMath.increment());
+
+
+// class Animal {
+//   constructor(age, weight) {
+//     this.age = age;
+//     this.weight = weight;
+//   }
+
+//   eat() {
+//     return 'eat';
+//   }
+
+//   move() {
+//     return 'move';
+//   }
+// }
+
+// class Bird extends Animal {
+//   fly() {
+//     return 'fly';
+//   }
+// }
+
+// const bird = new Bird(1, 5);
+
+// console.log(bird);
+// console.log(bird instanceof Bird);
+// console.log(bird instanceof Animal);
+
+// console.log(bird.eat());
+// console.log(bird.move());
+// console.log(bird.fly());
+
+
+// 그냥 참고만 하자. 권장하지 않는 스타일.
+// var Animal = (function() {
+//   function Animal(age, weight) {
+//     this.age = age;
+//     this.weight = weight;
+//   }
+
+//   Animal.prototype.eat = function() {
+//     return 'eat';
+//   };
+
+//   Animal.prototype.move = function() {
+//     return 'move';
+//   };
+
+//   return Animal;
+// }());
+
+// var Bird = (function() {
+//   function Bird() {
+//     Animal.apply(this, arguments);
+//   }
+
+//   Bird.prototype = Object.create(Animal.prototype);
+//   Bird.prototype.constructor = Bird;
+//   Bird.prototype.fly = function() {
+//     return 'fly';
+//   };
+//   return Bird;
+// }());
+
+// var bird = new Bird(1, 5);
+// console.log(bird);
+// console.log(bird.eat());
+// console.log(bird.move());
+// console.log(bird.fly());
+
+
+// function Base(a) {
+//   this.a = a;
+// }
+
+// class Derived extends Base {}
+
+// const derived = new Derived(1);
+// console.log(derived);
+
+
+// function Base1() {}
+// class Base2 {}
+
+// let condition = true;
+
+// class Derived extends (condition? Base1 : Base2) {}
+
+// const derived = new Derived();
+// console.log(derived);
+
+
+// class Base {
+//   constructor(a, b) {
+//     this.a = a;
+//     this.b = b;
+//   }
+// }
+
+// class Derived extends Base {
+//   constructor(a, b, c) {
+//     super(a, b);
+//     this.c = c;
+//   }
+// }
+
+// const derived = new Derived(1, 2, 3);
+// console.log(derived);
+
+
+// class Base {
+//   constructor(name) {
+//     this.name = name;
+//   }
+
+//   sayHi() {
+//     return `Hi! ${this.name}`;
+//   }
+// }
+
+// class Derived extends Base {
+//   sayHi() {
+//     return `${super.sayHi()}. How are you doing?`;
+//   }
+// }
+
+// const derived = new Derived('Lee');
+// console.log(derived.sayHi());
+
+// const base = {
+//   name: 'Lee',
+//   sayHi() {
+//     return `Hi! ${this.name}`;
+//   }
+// };
+
+// const derived = {
+//   __proto__: base,
+//   sayHi() {
+//     return `${super.sayHi()}. How are you doing?`;
+//   }
+// };
+
+// console.log(derived.sayHi());
+
+
+// class Base {
+//   static sayHi() {
+//     return 'Hi!';
+//   }
+// }
+
+// class Derived extends Base {
+//   static sayHi() {
+//     return `${super.sayHi()} How are you doing?`;
+//   }
+// }
+
+// console.log(Derived.sayHi());
+
+
+// class Rectangle {
+//   constructor(width, height) {
+//     this.width = width;
+//     this.height = height;
+//   }
+
+//   getArea() {
+//     return this.width * this.height;
+//   }
+
+//   toString() {
+//     return `width = ${this.width}, height = ${this.height}`;
+//   }
+// }
+
+// class ColorRectangle extends Rectangle {
+//   constructor(width, height, color) {
+//     super(width, height);
+//     this.color = color;
+//   }
+
+//   toString() {
+//     return super.toString() + `, color = ${this.color}`;
+//   }
+// }
+
+// const colorRectangle = new ColorRectangle(2, 4, 'red');
+// console.log(colorRectangle);
+// console.log(colorRectangle.getArea());
+// console.log(colorRectangle.toString());
+
+
+// function foo(...rest) {
+//   console.log(rest);
+// }
+
+// foo(1, 2, 3, 4, 5);
+
+
+// const arr = [];
+
+// console.time('Array Performance Test');
+
+// for(let i = 0; i < 10000000; i++) {
+//   arr[i] = i;
+// }
+
+// console.timeEnd('Array Performance Test');
+
+// const obj = {};
+
+// console.time('Object Performance Test');
+
+// for(let i = 0; i < 10000000; i++) {
+//   obj[i] = i;
+// }
+
+// console.timeEnd('Object Performance Test');
+
+
+// p.578
