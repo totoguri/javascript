@@ -1298,3 +1298,73 @@
 
 
 // p.578
+
+
+// const target = 'Is this all there is?';
+// const regexp = /is/i;
+// regexp.test(target);
+
+
+// const target = 'Is this all there is?';
+// const regexp = new RegExp(/is/i);
+// regexp.test(target);
+
+
+// p.614
+
+
+// const isIterable = v => v !== null && typeof v[Symbol.iterator] === 'function';
+
+// isIterable([]);
+// isIterable('');
+// isIterable(new Map());
+// isIterable(new Set());
+// isIterable({});
+
+
+// for(const item of [1, 2, 3]) {
+//   console.log(item);
+// }
+
+// const iterable = [1, 2, 3];
+// const iterator = iterable[Symbol.iterator]();
+
+// for(;;) {
+//   const res = iterator.next();
+//   if(res.done) break;
+//   const item = res.value;
+//   console.log(item);
+// }
+
+
+// const arrayLike = {
+//   0:1,
+//   1:2,
+//   2:3,
+//   length:3
+// };
+
+// const arr = Array.from(arrayLike);
+// console.log(arr);
+
+
+// const fibonacci = {
+//   [Symbol.iterator]() {
+//     let [pre, cur] = [0, 1];
+//     const max = 10;
+
+//     return {
+//       next() {
+//         [pre, cur] = [cur, pre + cur];
+//         return {value: cur, done: cur >= max};
+//       }
+//     };
+//   }
+// };
+
+// for (const num of fibonacci) {
+//   console.log(num);
+// }
+
+
+// p.636
