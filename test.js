@@ -1368,3 +1368,56 @@
 
 
 // p.636
+
+
+// var arr = [1, 2, 3];
+
+// var one   = arr[0];
+// var two   = arr[1];
+// var three = arr[2];
+
+// console.log(one, two, three);
+
+// const arr = [1, 2, 3];
+// const [one, two, three] = arr;
+// console.log(one, two, three);
+
+
+// const todos = [
+//   {id: 1, content: 'HTML', completed: true },
+//   {id: 2, content: 'CSS', completed: false },
+//   {id: 3, content: 'JS', completed: false }
+// ];
+
+// const [, {id}] = todos;
+// console.log(id);
+
+
+// const user = {
+//   name: 'Lee',
+//   address: {
+//     zipCode: '03068',
+//     city: 'Seoul'
+//   }
+// };
+
+// const { address: {city}} = user;
+// console.log(city);
+
+
+// const set = new Set();
+// console.log(set);
+
+
+// const uniq = array => array.filter((v, i, self) => self.indexOf(v) === i);
+// console.log(uniq([2, 1, 2, 3, 4, 3, 4]));
+
+// const uniq = array => [...new Set(array)];
+// console.log(uniq([2, 1, 2, 3, 4, 3, 4]));
+
+
+// const map1 = new Map([['key1', 'value1'], ['key2', 'value2']]);
+// console.log(map1);
+
+
+// p.660
