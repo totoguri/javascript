@@ -1,3 +1,5 @@
+// "Deep Dive"
+
 // function add(x, y) {
 //     return x + y;
 // }
@@ -1420,4 +1422,11 @@
 // console.log(map1);
 
 
-// p.660
+// end up in p.660
+
+
+// "Eloquent Javascript"
+// From 19, Sept, 2021
+
+
+// p.39
